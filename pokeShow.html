@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PokeRandom</title>
+    <title>Pokemon Generator</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
@@ -13,8 +13,34 @@
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </head>
-<body>
-    <h1 class="title">PokeGenerator</h1>
+<body style="background:rgb(28, 28, 28)">
+    <div>
+        <nav class="navbar navbar-expand-lg">
+          <a class="navbar-brand" href="./index.html"><img src="" alt="Logo"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="./index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./pokeShow.html">Pokemon Generator</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pokemon Search Engine</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+<div>
+    <h1 class="title">Pokemon Generator</h1>
+    <h2 style="color: rgb(192, 192, 192)">ポケモンジェネレーター</h2>
+</div>
+
     <div class="pokemon-container">
 
     </div>
@@ -22,7 +48,7 @@
 
     </div>
     <div>
-    <button type="button" class="btn btn-outline-dark btn-lg" style="box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);" href="#" id="refresh">Generate</button>
+    <button type="button" class="btn btn-outline-light btn-lg" style="box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);" href="#" id="refresh">Generate</button>
     </div>
     <div id="spinner" class="spinner-border text-light" role="status">
         <span class="visually-hidden">Loading...</span>

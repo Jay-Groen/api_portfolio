@@ -14,28 +14,52 @@ body {
   
   h1 {
     color: white;
+  }
+
+  .navbar {
+    background-color: #0077FF;
+    padding: 10%;
+    height: 70px;
+  }
+
+  .navbar-brand,
+  .navbar-nav .nav-link {
+    color: rgb(228, 228, 228);
+  }
+
+  .navbar-brand,
+  .navbar-nav .nav-link:hover {
+    color: white;
+  }
+
+  .navbar-brand img {
+    max-width: 30%;  
+    height: auto; 
     box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
-    background: linear-gradient(
-    90deg, 
-    rgb(93, 179, 232) 0%,
-    rgb(120, 184, 230) 54%,
-    rgb(157, 209, 249) 82%
-    );
   }
   
   .title {
     margin-top: 10%;
   }
 
+  .home-logo {
+    margin-top: 8%;
+  }
+
+  .home-logo img{
+    height: auto;
+    max-width: 5%;
+  }
+
   .pokemon-container {
     display: center;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
-    width: 25%;
+    width: 20%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 40px;
-    margin-top: 10%;
+    margin-top: 5%;
   }
   
   .pokemon-block,
