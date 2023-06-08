@@ -1,18 +1,15 @@
 const pokemonContainer = document.querySelector(".pokemon-container");
-const pokemonEvolutionsContainer = document.querySelector(".pokemon-evolutions-container");
 const spinner = document.querySelector("#spinner");
-const previous = document.querySelector("#refresh");
+const generate = document.querySelector("#generate");
 
 let limit = 0;
 let offset = Math.floor(Math.random() * 899);
 
-refresh.addEventListener( "click", () => {
+generate.addEventListener( "click", () => {
       removeChildNodes(pokemonContainer);
-      removeChildNodes(pokemonEvolutionsContainer);
       let randomNumber = Math.floor(Math.random() * 899);
       let offset = randomNumber;
       fetchPokemons(offset, limit);
-      fetchPokemonEvolution(offset, limit);
   });
 
 function fetchPokemon(id) {
@@ -24,32 +21,12 @@ function fetchPokemon(id) {
     });
 }
 
-function fetchPokemonEvolution(id) {
-    fetch(`https://pokeapi.co/api/v2/evolution-chain/${id}/`)
-    .then((res) => res.json())
-    .then((data) => {
-      createPokemonEvolution(data);
-      spinner.style.display = "none";
-    });
-}
-
 function fetchPokemons(offset, limit) {
     spinner.style.display = "block";
     for (let i = offset; i <= offset + limit; i++) {
       fetchPokemon(i);
     }
   }
-
-function fetchPokemonEvolutions(offset, limit) {
-    spinner.style.display = "block";
-    for (let i = offset; i <= offset +limit; i++) {
-        fetchPokemonEvolution(i);
-    }
-}
-
-function createPokemonEvolution(pokemon) {
-   console.log(pokemon)
-}
 
 function createPokemon(pokemon) {
     const flipCard = document.createElement("div");
@@ -86,6 +63,7 @@ function createPokemon(pokemon) {
     cardBack.classList.add("pokemon-block-back");
   
     cardBack.appendChild(progressBars(pokemon.stats));
+    cardBack.appendChild(typesPoku(pokemon.types));
   
     cardContainer.appendChild(card);
     cardContainer.appendChild(cardBack);
@@ -127,6 +105,27 @@ function createPokemon(pokemon) {
   
     return statsContainer;
   }
+
+  function typesPoku(types) {
+    const typesContainer = document.createElement("div");
+    typesContainer.classList.add("types-container");
+
+    for (let i = 0; i < 3; i++) {
+      const type = types[i];
+  
+      const typeContainer = document.createElement("type-container");
+      typeContainer.classList.add("type-container");
+  
+      const typeName = document.createElement("p");
+      typeName.textContent = type.types.name;
+  
+      typeContainer.appendChild(typeName);
+  
+      typesContainer.appendChild(typeContainer);
+    }
+  
+    return typesContainer;
+  }
   
   function removeChildNodes(parent) {
     while (parent.firstChild) {
@@ -135,5 +134,4 @@ function createPokemon(pokemon) {
   }
   
   fetchPokemons(offset, limit);
-  fetchPokemonEvolutions(offset, limit);
   
