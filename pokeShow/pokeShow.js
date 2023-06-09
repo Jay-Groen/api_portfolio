@@ -63,7 +63,7 @@ function createPokemon(pokemon) {
     cardBack.classList.add("pokemon-block-back");
   
     cardBack.appendChild(progressBars(pokemon.stats));
-    cardBack.appendChild(typesPoku(pokemon.types));
+    // cardBack.appendChild(typesPoku(pokemon.types));
   
     cardContainer.appendChild(card);
     cardContainer.appendChild(cardBack);
