@@ -14,22 +14,30 @@ async function showPokemonData(id) {
 }
 
 async function createPokemon(pokemon) {
-  const flipcard = createElement('div', ['card', 'pokemon-card'])
+  const flipCard = document.createElement("div");
+  flipCard.classList.add("card", "pokemon-card");
   flipCard.dataset.name = pokemon.name.toLowerCase()
 
+  const cardContainer = document.createElement("div");
+  cardContainer.classList.add("card-container");
 
-  const cardContainer = createElement('div', ['poke-info']);
-  const card = createElement("div");
-  const spriteContainer = createElement('div', ['img-container']); 
-
-  const sprite = createElement("img");
+  const card = document.createElement("div");
+    card.classList.add("pokemon-block");
+  
+  const spriteContainer = document.createElement("div");
+  spriteContainer.classList.add("img-container");
+  
+  const sprite = document.createElement("img");
   sprite.src = pokemon.sprites.front_default;
 
   spriteContainer.appendChild(sprite);
 
-  const number = createElement("p", [], `#${pokemon.id.toString().padStart(3, 0)}`);
+  const number = document.createElement("p");
+    number.textContent = `#${pokemon.id.toString().padStart(3, 0)}`;
 
-  const name = createElement("p", ["name"], pokemon.name);
+  const name = document.createElement("p");
+    name.classList.add("name");
+    name.textContent = pokemon.name;
 
   card.appendChild(spriteContainer);
   card.appendChild(number);
@@ -60,8 +68,15 @@ async function createPokemon(pokemon) {
   const infoDiv2 = document.createElement("div");
 
   const types = document.createElement("div")
-  types.innerHTML = pokemon.types.reduce((type1, type2) => type1.type.name + " - " + type2.type.name)
-  
+
+  if(pokemon.types.length === 2){
+    types.innerHTML = pokemon.types.reduce((type1, type2) => type1.type.name + " - " + type2.type.name)
+    console.log(2)
+  } else{
+    types.innerHTML = pokemon.types[0].type.name
+    console.log(1)
+  }
+
   infoDiv2.append(types)
 
   infoDiv2.appendChild(progressBars(pokemon.stats));
