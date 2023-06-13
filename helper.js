@@ -1,5 +1,5 @@
 function createElement(el, classNames = [], text = "") {
     const element = document.createElement(el);
-    element.classList.add(...classNames)
+    element.className.add(...classNames)
     element.textContent = text
 }
