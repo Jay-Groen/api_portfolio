@@ -86,7 +86,7 @@ body {
   }
 
   .pokemon-container-wide {
-    width: 80%;
+    width: 50%;
     justify-content: space-around;
     margin-left: auto;
     margin-right: auto;
@@ -161,8 +161,8 @@ body {
     top: 0%;
   }
   
-  .stat-container {
-    display: grid;
+  .stats-container {
+    /* display: grid; */
     grid-template-columns: 1fr 2fr;
     text-align: left;
   }
@@ -170,4 +170,8 @@ body {
   .poke-info {
     display: grid;
     grid-template-columns: 33% 33% 33%;
+  }
+
+  .ability-container {
+    margin-top: 2%;
   }
