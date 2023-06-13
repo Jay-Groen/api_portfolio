@@ -71,7 +71,7 @@ function createPokemon(pokemon) {
   cardContainer.appendChild(card);
 
   flipCard.addEventListener("click", () => {
-    window.location.href = `/pokeInfo/index.html?pokemon_id=${pokemon.id}`
+    window.location.href = `./pokeInfo.html?pokemon_id=${pokemon.id}`
   })
 
   pokemonContainer.appendChild(flipCard);
